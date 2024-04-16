@@ -7,7 +7,7 @@ DB_PASSWORD="${DB_PASSWORD}"
 BACKUP_PATH="/tmp"
 
 # Створення повного бекапу ShopDB і відновлення у ShopDBReserve
-mysqldump -u"$DB_USER" -p"$DB_PASSWORD" --databases ShopDB > "$BACKUP_PATH/ShopDB.sql"
+mysqldump -u"$DB_USER" -p"$DB_PASSWORD" --no-create-db ShopDB > "$BACKUP_PATH/ShopDB.sql"
 mysql -u"$DB_USER" -p"$DB_PASSWORD" ShopDBReserve < "$BACKUP_PATH/ShopDB.sql"
 
 # Створення бекапу лише даних ShopDB і відновлення у ShopDBDevelopment
